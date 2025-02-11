@@ -1,0 +1,70 @@
+<p-panel showHeader="true" class="mt-2" header="Basic Pipes">
+  <h1>Basic Pipes Uncommon pages</h1>
+  <p>This is included into Angular</p>
+</p-panel>
+
+<div class="grid">
+  <div class="col-12 md:col-6">
+    <p-fieldset legend="JSON Pipe" [toggleable]="true">
+      <p>Este es una persona {{ person | json }}</p>
+    </p-fieldset>
+    <p-fieldset legend="Key Value Pipe" [toggleable]="true">
+      <li *ngFor="let item of person | keyvalue">
+        <b>{{ item.key | titlecase }}</b>
+      </li>
+    </p-fieldset>
+
+    <p-fieldset legend="Async Pipe" [toggleable]="true">
+      <pre *ngIf="!(myObservableTimer | async)">
+        resolviendo observable
+      </pre>
+      <pre>
+        {{ myObservableTimer }}
+      </pre>
+
+      <pre>
+        {{ myObservableTimer | async }}
+      </pre>
+
+      <b>Promise Value</b>
+      <pre>
+        {{ promiseValue | async }}
+      </pre>
+    </p-fieldset>
+
+
+    <p-fieldset legend="i18nSelect Pipe" [toggleable]="true">
+      <p>
+        Saludos {{ name }} es un place {{ gender | i18nSelect : invitationMap }}
+      </p>
+    </p-fieldset>
+
+    <p-button (onClick)="this.changeClient()" label="Cambiar persona">
+    </p-button>
+  </div>
+
+  <div class="col-12 md:col-6">
+    <p-fieldset legend="i18nPlura Pipe" [toggleable]="true">
+      <p>
+        Actualemente tenemos
+        {{ event.length | i18nPlural : clientsMap }} personas en nuestro evento
+      </p>
+    </p-fieldset>
+    <p-button (onClick)="this.deleteClient()" label="Delete Client"></p-button>
+  </div>
+
+  <div class="col-12 md:col-6">
+    <p-fieldset legend="Slice Pipe" [toggleable]="true">
+      <b>Original</b>
+      <pre>{{ event }}</pre>
+
+      <p>Slice del 1 al 3</p>
+      <pre>{{ event | slice : 1 : 3 }}</pre>
+      <p>Slice del 3 al 4</p>
+      <pre>{{ event | slice : 31 : 4 }}</pre>
+      <p>Slice del 0 al -2</p>
+      <!-- //elimina a los que se indique -->
+      <pre>{{ event | slice : 0 : -2 }}</pre>
+    </p-fieldset>
+  </div>
+</div>
