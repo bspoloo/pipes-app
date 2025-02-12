@@ -9,11 +9,11 @@
                 <path d="..." fill="var(--p-primary-color)" />
                 <mask id="mask0_1_52" style="mask-type:luminance" maskUnits="userSpaceOnUse" x="0" y="0" width="31" height="33"></mask>
             </svg>
-            <p-button label="ToogleCase" text plain  icon="pi pi-sort" styleClass="p-button-danger"/>
-            <p-button label="By Name" text plain icon="pi pi-sort" styleClass="p-button-danger"/>
+            <p-button label="ToogleCase" text plain  icon="pi pi-sort" styleClass="p-button-danger" (onClick)="this.toggleUperCase()"/>
             <p-button label="Fly" text plain icon="pi pi-sort" styleClass="p-button-danger"/>
-            <p-button label="By Fly" text plain icon="pi pi-sort" styleClass="p-button-danger"/>
-            <p-button label="By Color" text plain icon="pi pi-sort" styleClass="p-button-danger"/>
+            <p-button label="By Name" text plain icon="pi pi-sort" styleClass="p-button-danger" (onClick)="this.changeOrder('name')"/>
+            <p-button label="By Fly" text plain icon="pi pi-sort" styleClass="p-button-danger" (onClick)="this.changeOrder('canFly')"/>
+            <p-button label="By Color" text plain icon="pi pi-sort" styleClass="p-button-danger" (onClick)="this.changeOrder('color')"/>
 
         </div>
     </ng-template>
@@ -30,9 +30,29 @@
 
   <p-panel showHeader="true" class="mt-2" header="Custom TogglePipeCase">
     <p>
-      nosotros | toggleCase:false => {{'nosotros' | toggleCase:false}}
+      nosotros | toggleCase => {{'nosotros' | toggleCase:isUpperCase}}
     </p>
   </p-panel>
+
+
+  <br>
+
+  <p-table [value]="heroes | sortBy:this.sortBy" [tableStyle]="{ 'min-width': '50rem' }">
+    <ng-template #header>
+        <tr>
+            <th>Name</th>
+            <th>Fly</th>
+            <th>Color</th>
+        </tr>
+    </ng-template>
+    <ng-template #body let-hero>
+        <tr>
+            <td>{{ hero.name }}</td>
+            <td>{{ hero.canFly | canFly}}</td>
+            <td>{{ hero.color }}</td>
+        </tr>
+    </ng-template>
+</p-table>
 
 </p-panel>
 <br>

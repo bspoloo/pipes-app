@@ -7,6 +7,8 @@ import { ProductsRoutingModule } from './products-routing.module';
 import { PrimeNgModule } from '../prime-ng/prime-ng.module';
 import { OrderComponent } from './pages/order/order.component';
 import { ToggleCasePipe } from './pipes/toggle-case.pipe';
+import { CanFlyPipe } from './pipes/can-fly.pipe';
+import { SortByPipe } from './pipes/sort-by.pipe';
 
 
 
@@ -16,12 +18,14 @@ import { ToggleCasePipe } from './pipes/toggle-case.pipe';
     NumbersPageComponent,
     UncommonPageComponent,
     OrderComponent,
+    SortByPipe,
   ],
   imports: [
     CommonModule,
     ProductsRoutingModule,
     PrimeNgModule,
     ToggleCasePipe,
+    CanFlyPipe,
   ],
   exports:[
     BasicPageComponent,
