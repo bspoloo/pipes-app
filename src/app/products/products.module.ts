@@ -6,6 +6,7 @@ import { UncommonPageComponent } from './pages/uncommon-page/uncommon-page.compo
 import { ProductsRoutingModule } from './products-routing.module';
 import { PrimeNgModule } from '../prime-ng/prime-ng.module';
 import { OrderComponent } from './pages/order/order.component';
+import { ToggleCasePipe } from './pipes/toggle-case.pipe';
 
 
 
@@ -14,12 +15,13 @@ import { OrderComponent } from './pages/order/order.component';
     BasicPageComponent,
     NumbersPageComponent,
     UncommonPageComponent,
-    OrderComponent
+    OrderComponent,
   ],
   imports: [
     CommonModule,
     ProductsRoutingModule,
-    PrimeNgModule
+    PrimeNgModule,
+    ToggleCasePipe,
   ],
   exports:[
     BasicPageComponent,

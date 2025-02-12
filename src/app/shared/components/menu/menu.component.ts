@@ -32,6 +32,11 @@ export class MenuComponent implements OnInit {
             label: 'No commons',
             icon: PrimeIcons.CIRCLE,
             routerLink: 'uncommon'
+          },
+          {
+            label:'Custom Pipes',
+            icon: PrimeIcons.CALENDAR,
+            routerLink: 'order'
           }
         ]
       },
